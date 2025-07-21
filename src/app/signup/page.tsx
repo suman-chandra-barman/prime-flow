@@ -12,7 +12,6 @@ import {
   FaFacebook,
 } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -272,7 +271,7 @@ export default function SignUpPage() {
           {/* Sign in link */}
           <div className="text-center text-sm text-gray-600 mt-4">
             Already I haven an account?{" "}
-            <Link href="#" className="underline text-primary-fill-primary">
+            <Link href="/signin" className="underline text-primary-fill-primary">
               Sign in
             </Link>
           </div>
