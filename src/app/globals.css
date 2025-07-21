@@ -45,6 +45,7 @@
   /* custom */
   --color-primary-light: var(--primary-light);
   --color-primary-fill-primary: var(--primary-fill-primary);
+  --color-gradient-primary: var(--gradient-primary);
 }
 
 :root {
@@ -84,6 +85,7 @@
   /* custom */
   --primary-light: #6c1555;
   --primary-fill-primary: #080635;
+  --gradient-primary: "linear-gradient(to right, #16156C, #080635)";
 }
 
 .dark {
