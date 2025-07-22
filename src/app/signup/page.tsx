@@ -5,12 +5,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
-import {
-  FaUser,
-  FaEye,
-  FaEyeSlash,
-  FaFacebook,
-} from "react-icons/fa";
+import { FaUser, FaEye, FaEyeSlash, FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,10 +19,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { signUpSchema, type SignUpFormData } from "@/lib/signupValidation";
+import { useRouter } from "next/navigation";
 
 export default function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const router = useRouter();
 
   const form = useForm<SignUpFormData>({
     resolver: zodResolver(signUpSchema),
@@ -55,6 +53,7 @@ export default function SignUpPage() {
 
       // Reset form after successful submission
       form.reset();
+      router.push("/emailVerificaion");
     } catch (error) {
       toast.error("Something went wrong!", {
         description: "Please try again later.",
@@ -215,6 +214,7 @@ export default function SignUpPage() {
                       <Checkbox
                         checked={field.value}
                         onCheckedChange={field.onChange}
+                        className="cursor-pointer"
                       />
                     </FormControl>
                     <div className="space-y-1 leading-none">
@@ -271,7 +271,10 @@ export default function SignUpPage() {
           {/* Sign in link */}
           <div className="text-center text-sm text-gray-600 mt-4">
             Already I haven an account?{" "}
-            <Link href="/signin" className="underline text-primary-fill-primary">
+            <Link
+              href="/signin"
+              className="underline text-primary-fill-primary"
+            >
               Sign in
             </Link>
           </div>
