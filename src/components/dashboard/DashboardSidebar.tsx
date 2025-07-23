@@ -86,7 +86,7 @@ export function DashbaordSidebar() {
     <Sidebar className="border-r-0 bg-gradient-to-br from-[#16156C] to-[#080635]">
       <SidebarHeader className="py-6 px-8">
         <div className="flex items-center gap-2">
-          <Link href="/dashboard">
+          <Link href="/">
             <Image src={logo} alt="Logo" />
           </Link>
         </div>
@@ -122,10 +122,10 @@ export function DashbaordSidebar() {
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton
                 asChild
-                className={`text-white hover:bg-white hover:text-blue-900 ${
+                className={`text-white hover:text-blue-900${
                   item.variant === "destructive"
                     ? "hover:bg-red-600 text-red-300"
-                    : ""
+                    : "hover:bg-white"
                 }`}
               >
                 <a href={item.url} className="flex items-center gap-3">
