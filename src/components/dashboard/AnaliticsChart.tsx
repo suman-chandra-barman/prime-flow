@@ -76,7 +76,7 @@ const AnalyticsChart: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl h-full mx-auto p-6 bg-white rounded-xl shadow-lg">
+    <div className="w-full max-w-6xl h-full mx-auto p-6 bg-gradient-to-r from-[#FFF1E5] to-[#FFFFFF] rounded-xl shadow-lg">
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
@@ -87,7 +87,7 @@ const AnalyticsChart: React.FC = () => {
         <div className="relative">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-50 hover:bg-gray-100 rounded-lg border border-gray-200 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg transition-colors"
           >
             <span className="text-sm font-medium text-gray-700">
               {periodLabels[selectedPeriod]}
