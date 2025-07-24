@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 import { MetricCard } from "@/components/dashboard/MetricCard";
 import AnalyticsChart from "@/components/dashboard/AnaliticsChart";
-import { IncomeAnalytics } from "@/components/dashboard/IncomeAnalitics";
-import { CategoryAnalytics } from "@/components/dashboard/CategoryAnalytics";
 import { AddAccountsCard } from "@/components/dashboard/AddAccountsCard";
 import { TransactionsTable } from "@/components/dashboard/TransactionsTable";
+import CategoryAnalytics from "@/components/dashboard/CategoryAnalytics"
 import type {
   IMetricCard as MetricCardType,
 } from "@/types/dashboard";
+import IncomeAnalytics from "@/components/dashboard/IncomeAnalytics";
 
 export default function Dashboard() {
   const [metricsData, setMetricsData] = useState<MetricCardType[]>([
@@ -73,16 +73,21 @@ export default function Dashboard() {
             <AnalyticsChart />
         </div>
       </div>
+
       <div className="space-y-6 mt-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <CategoryAnalytics />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 min-h-[400px]">
+          <div className="flex flex-col h-full">
+            <div className="h-full bg-white">
+              <IncomeAnalytics />
+            </div>
+          </div>
+          <div className="flex flex-col h-full">
+            <div className="h-full bg-white ">
+              <CategoryAnalytics />
+            </div>
+          </div>
         </div>
 
-        {/* Income Analytics */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <IncomeAnalytics />
-          <div></div> {/* Empty space to match layout */}
-        </div>
 
         {/* Transactions Table */}
         <TransactionsTable />
