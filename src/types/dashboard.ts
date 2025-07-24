@@ -31,3 +31,21 @@ export interface ICategoryData {
   percentage: string
   color: string
 }
+export interface ITransaction {
+  id: string
+  category: string
+  details: string
+  amount: string
+  image: string
+  transaction: string
+  account: string
+  type: "Income" | "Expense"
+  incomeSource: string
+  contact: string
+  clientName: string
+  receivedDate: string
+  paymentMethod: string
+  incomeCategory: string
+  notes: string
+  proofImages: string[]
+}

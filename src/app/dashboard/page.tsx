@@ -87,8 +87,6 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-
-
         {/* Transactions Table */}
         <TransactionsTable />
       </div>
