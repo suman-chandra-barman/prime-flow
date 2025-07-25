@@ -5,11 +5,10 @@ import { MetricCard } from "@/components/dashboard/MetricCard";
 import AnalyticsChart from "@/components/dashboard/AnaliticsChart";
 import { AddAccountsCard } from "@/components/dashboard/AddAccountsCard";
 import { TransactionsTable } from "@/components/dashboard/TransactionsTable";
-import CategoryAnalytics from "@/components/dashboard/CategoryAnalytics"
-import type {
-  IMetricCard as MetricCardType,
-} from "@/types/dashboard";
+import CategoryAnalytics from "@/components/dashboard/CategoryAnalytics";
+import type { IMetricCard as MetricCardType } from "@/types/dashboard";
 import IncomeAnalytics from "@/components/dashboard/IncomeAnalytics";
+import Link from "next/link";
 
 export default function Dashboard() {
   const [metricsData, setMetricsData] = useState<MetricCardType[]>([
@@ -64,13 +63,13 @@ export default function Dashboard() {
         <div className="flex-1 flex flex-col space-y-6">
           <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-6">
             {metricsData.map((metric, index) => (
-                <MetricCard key={index} data={metric} />
+              <MetricCard key={index} data={metric} />
             ))}
             <AddAccountsCard />
           </div>
         </div>
         <div className="flex-1 mt-6 md:mt-0">
-            <AnalyticsChart />
+          <AnalyticsChart />
         </div>
       </div>
 
@@ -87,8 +86,17 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
+
         {/* Transactions Table */}
-        <TransactionsTable />
+        <div>
+          <div className="flex flex-row items-center justify-between px-6">
+            <p className="text-lg font-semibold">Transactions</p>
+            <Link href="/dashboard/transactions" className="text-[#838383]">
+              See all
+            </Link>
+          </div>
+          <TransactionsTable />
+        </div>
       </div>
     </div>
   );
